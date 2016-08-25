@@ -34,7 +34,7 @@ const listener = function(state) {
 
   console.log(state);
 
-  if (state > 2) this.undo();
+  if (state > 2) this.dispatch('RESET');
 };
 
 const dumpster = createStore(reducer, resetter);
@@ -44,8 +44,7 @@ dumpster.subscribe(listener);
 dumpster.dispatch('INCREMENT'); // 1
 dumpster.dispatch('INCREMENT'); // 2
 dumpster.dispatch('INCREMENT'); // 3
-                                // 2
-dumpster.dispatch('RESET');     // 0
+                                // 0
 ```
 
 ##License
