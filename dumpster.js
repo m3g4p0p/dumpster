@@ -1,4 +1,6 @@
-(window === undefined ? global : window).createStore = function(...reducers) {
+;(function() {
+
+(global === undefined ? window : global).createStore = function(...reducers) {
 
   const states = [];
   const listeners = [];
@@ -9,7 +11,7 @@
    */
   const _notify = function(self) {
     const state = states[states.length - 1];
-    
+
     listeners.forEach(listener => {
       listener.call(self, state);
     });   
@@ -69,3 +71,5 @@
     }
   };
 };
+
+})();
