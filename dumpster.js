@@ -1,6 +1,4 @@
-;(function() {
-
-(global === undefined ? window : global).createStore = function(...reducers) {
+;(global === undefined ? window : global).createStore = function(...reducers) {
 
   const states = [];
   const listeners = [];
@@ -76,5 +74,3 @@
     }
   };
 };
-
-})();
