@@ -45,6 +45,8 @@ dumpster.dispatch('INCREMENT'); // 1
 dumpster.dispatch('INCREMENT'); // 2
 dumpster.dispatch('INCREMENT'); // 3
                                 // 0
+dumpster.undo(false);
+console.log(dumpster.get());    // 3
 ```
 
 ##License
