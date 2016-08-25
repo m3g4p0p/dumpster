@@ -50,24 +50,29 @@
 
     /**
      * Undo the last action
+     *
+     * Optionally suppress notifying the listeners
+     * to prevent nested dispatch loops
      */
-    undo() {
+    undo(notify = true) {
 
       if (!states.length) return;
 
       history.push(states.pop());
-      _notify(this);
+      
+      if (notify) _notify(this);
     },
 
     /**
      * Redo the last undone action
      */
-    redo() {
+    redo(notify = true) {
 
       if (!history.length) return;
 
       states.push(history.pop());
-      _notify(this);
+
+      if (notify) _notify(this);
     }
   };
 };
